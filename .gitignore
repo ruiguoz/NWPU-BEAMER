@@ -31,9 +31,6 @@
 *.dvi
 *.ps
 /main.pdf
-/nwpu_report.pdf
-/ppt01.pdf
-/ppt02.pdf
 
 # Editors and operating systems
 .DS_Store

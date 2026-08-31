@@ -1,3 +1,2 @@
-xelatex -output-driver="xdvipdfmx -V 5" nwpu_report.tex
-bibtex nwpu_report.aux
-xelatex -output-driver="xdvipdfmx -V 5" nwpu_report.tex
+@echo off
+latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex

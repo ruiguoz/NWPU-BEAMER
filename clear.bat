@@ -1,11 +1,2 @@
-del  nwpu_report.aux
-del  nwpu_report.bbl
-del  nwpu_report.blg
-del  nwpu_report.log
-del  nwpu_report.nav
-del  nwpu_report.out
-del  nwpu_report.run.xml
-del  nwpu_report.snm
-del  nwpu_report.synctex.*
-del  nwpu_report.toc
-del  nwpu_report-blx.bib
+@echo off
+latexmk -C main.tex

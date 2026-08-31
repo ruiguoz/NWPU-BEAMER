@@ -38,6 +38,27 @@
 
 编译产物为 `main.pdf`。首次使用前请安装包含中文支持的完整 TeX Live；Overleaf 中将 Compiler 设为 XeLaTeX。
 
+## 唯一主文件
+
+[`main.tex`](main.tex) 是本项目**唯一需要编译的主文件**，也是使用者开始写演示文稿的入口。它负责：
+
+1. 选择 `ctexbeamer`、16:9 页面和跨平台中文字体；
+2. 加载 `nwpubeamer.sty` 主题；
+3. 设置标题、作者、单位和日期；
+4. 存放演示文稿的章节与页面内容。
+
+其他主要文件的职责如下：
+
+| 文件或目录 | 用途 | 是否直接编译 |
+| --- | --- | --- |
+| `main.tex` | 演示文稿入口和用户内容 | **是** |
+| `nwpubeamer.sty` | 主题实现：背景、颜色、页眉、页脚 | 否 |
+| `source/` | 主题使用的校名、校徽和背景素材 | 否 |
+| `docs/images/` | README 展示图片 | 否 |
+| `.github/workflows/latex.yml` | 自动编译并检查 `main.tex` | 否 |
+
+Windows 用户也可以运行 `genPPT.cmd`；该脚本同样只编译 `main.tex`。`clear.bat` 用于清理它产生的辅助文件。
+
 ## 字体
 
 `main.tex` 默认使用：
@@ -63,10 +84,6 @@ Fandol 随 TeX Live 分发，不依赖 Windows 的 `SimSun`、`SimHei` 或 `KaiT
 本次小更新没有把旧主题色直接替换成一个未经核对的 RGB 值。学校章程记录的标准色为 `C100 M70`，党委宣传部于 2020 年发布了[西北工业大学新 VI 及使用示例](https://news.nwpu.edu.cn/info/1210/74474.htm)和源文件。正式维护主题视觉时，应从官方 VI 源文件重新导出适合屏幕显示的 RGB 颜色及矢量 Logo，并核对校名字体和组合规范。
 
 当前 `source/` 仍属于历史模板素材，不应视为官方最新 VI。
-
-## 旧版示例
-
-`nwpu_report.tex`、`ppt01.tex` 和 `ppt02.tex` 保留了原仓库的个人汇报示例。它们依赖的宏包较多，建议新文稿从 `main.tex` 开始。旧版示例现已改用 `ctexbeamer`、Fandol 字体和 16:9 页面，但其具体内容和依赖尚未精简。
 
 ## 自动编译
 
