@@ -1,60 +1,89 @@
-# NWPU-BEAMER LaTeX Beamer PPT 模板（西北工业大学）
+# NWPU-BEAMER
 
-基于清华大学与东南大学的 Beamer 模板开发的 **西北工业大学主题 LaTeX Beamer PPT 模板**。  
-为方便大家学习，原清华大学模板的部分代码仅被注释而未删除，用户可按需启用。
+西北工业大学风格的 LaTeX Beamer 演示文稿模板。本项目基于早期清华大学、东南大学 Beamer 模板改造，提供中文/英文内容支持和一个可直接编译的最小示例。
 
----
-## 🎨 模板特色
+> [!IMPORTANT]
+> 本项目并非西北工业大学官方模板。仓库中的校名、校徽和视觉素材仅供模板演示；正式发布或对外使用前，请按学校现行视觉识别规范核对素材与组合方式。
 
-- 🎓 西北工业大学主题配色与视觉风格  
-- 🈶 支持中文 / 英文双语演示文稿  
-- ⚙️ 兼容 **XeLaTeX** 引擎，中文显示优良  
-- 💡 保留清华与东南大学模板代码便于学习对比  
-- 📄 提供可直接编译的演示样例文件  
+## 特点
 
----
+- 默认 16:9，也可切换为 4:3
+- 使用 `ctexbeamer` 和 TeX Live 自带的 Fandol 字体
+- 可在 Windows、macOS、Linux 和 Overleaf 上使用 XeLaTeX 编译
+- GitHub Actions 使用 TeX Live 2026 自动编译 `main.tex`
 
-## 🚀 快速开始
+## 快速开始
 
-1. **克隆仓库**
+1. 克隆仓库：
 
    ```bash
-   git clone https://github.com/phonixer/NWPU-BEAMER.git
+   git clone https://github.com/ruiguoz/NWPU-BEAMER.git
+   cd NWPU-BEAMER
+   ```
 
-2. **编辑示例模板**
+2. 编辑 [`main.tex`](main.tex) 中的标题、作者、单位、日期和正文。
 
-   打开并编辑 main.tex：
+3. 使用 XeLaTeX 编译：
 
-   - 修改标题：\title{}
-   - 修改作者：\author{}
-   - 修改单位 / 学院：\institute{}
-   - 修改日期：\date{}
-   - 根据需要替换校徽或 Logo（如 logo1.png）
+   ```bash
+   latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex
+   ```
 
-3. **编译**
+   如果没有 `latexmk`，也可以运行两次：
 
-   使用 XeLaTeX 进行编译：
-   
----
+   ```bash
+   xelatex -interaction=nonstopmode -halt-on-error main.tex
+   xelatex -interaction=nonstopmode -halt-on-error main.tex
+   ```
+
+编译产物为 `main.pdf`。首次使用前请安装包含中文支持的完整 TeX Live；Overleaf 中将 Compiler 设为 XeLaTeX。
+
+## 字体
+
+`main.tex` 默认使用：
+
+```tex
+\documentclass[aspectratio=169,fontset=fandol]{ctexbeamer}
+```
+
+Fandol 随 TeX Live 分发，不依赖 Windows 的 `SimSun`、`SimHei` 或 `KaiTi`。如果确实需要系统字体，可以把 `fontset=fandol` 改为 CTeX 支持的 `fontset=windows`、`fontset=mac` 或 `fontset=ubuntu`；跨平台共享文档时建议保留 Fandol。
+
+## 页面比例
+
+默认示例使用 16:9。若要生成 4:3 文稿，将 `main.tex` 首行改为：
+
+```tex
+\documentclass[aspectratio=43,fontset=fandol]{ctexbeamer}
+```
+
+背景图以保持比例的方式居中显示，不会随页面比例拉伸。
+
+## 视觉素材
+
+本次小更新没有把旧主题色直接替换成一个未经核对的 RGB 值。学校章程记录的标准色为 `C100 M70`，党委宣传部于 2020 年发布了[西北工业大学新 VI 及使用示例](https://news.nwpu.edu.cn/info/1210/74474.htm)和源文件。正式维护主题视觉时，应从官方 VI 源文件重新导出适合屏幕显示的 RGB 颜色及矢量 Logo，并核对校名字体和组合规范。
+
+当前 `source/` 仍属于历史模板素材，不应视为官方最新 VI。
+
+## 旧版示例
+
+`nwpu_report.tex`、`ppt01.tex` 和 `ppt02.tex` 保留了原仓库的个人汇报示例。它们依赖的宏包较多，建议新文稿从 `main.tex` 开始。旧版示例现已改用 `ctexbeamer`、Fandol 字体和 16:9 页面，但其具体内容和依赖尚未精简。
+
+## 自动编译
+
+每次 push 或 pull request 都会运行 `.github/workflows/latex.yml`，在 Linux + TeX Live 2026 中用 XeLaTeX 编译 `main.tex`，并上传 `main.pdf` 作为 Actions artifact。
 
 ## 示例效果
-下图展示了本模板的部分演示页样式 👇
 
-![image](https://user-images.githubusercontent.com/35895359/130741601-5dff265d-4220-4f87-8314-7e89901569ec.png)
+![示例页面 1](https://user-images.githubusercontent.com/35895359/130741601-5dff265d-4220-4f87-8314-7e89901569ec.png)
 
-![1](https://user-images.githubusercontent.com/35895359/183274072-52c68d1b-f7e0-421e-b478-e88c8b008383.png)
-![2](https://user-images.githubusercontent.com/35895359/183274042-bad7bfab-247e-422c-a097-e21f07054f27.png)
+![示例页面 2](https://user-images.githubusercontent.com/35895359/183274072-52c68d1b-f7e0-421e-b478-e88c8b008383.png)
 
+![示例页面 3](https://user-images.githubusercontent.com/35895359/183274042-bad7bfab-247e-422c-a097-e21f07054f27.png)
 
----
+## 许可与素材
 
-## 🙏 致谢
+请阅读 [`LICENSE`](LICENSE)。模板代码、学校标识/VI、字体以及第三方来源内容的权利范围不同：MIT 许可不自动覆盖校名、校徽、字体或其他第三方素材。
 
-本模板基于以下优秀项目改造而成：
+## 致谢
 
-- 清华大学 Beamer 模板  
-- 东南大学 Beamer 模板  
-
-感谢原作者的开源贡献，也感谢西北工业大学师生在使用反馈中的帮助。
-
----
+本模板基于早期清华大学与东南大学 Beamer 模板改造。感谢原作者与使用者的贡献和反馈。

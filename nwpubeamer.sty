@@ -13,8 +13,9 @@
 %\usecolortheme{dolphin}
 %\useoutertheme{infolines}
 % Background
-\pgfdeclareimage[width=\paperwidth,height=\paperheight]{bg}{source/nwpu_background.png}
-\setbeamertemplate{background}{\pgfuseimage{bg}}
+% Keep the original 4:3 artwork undistorted on both 16:9 and 4:3 pages.
+\pgfdeclareimage[height=\paperheight]{bg}{source/nwpu_background.png}
+\setbeamertemplate{background}{\makebox[\paperwidth][c]{\pgfuseimage{bg}}}
 
 
 
@@ -79,7 +80,8 @@
 \xdefinecolor{npu-blue-gray}{RGB}{229, 237, 246}
 \setbeamercolor{h1}{fg=black,bg=npu-blue-gray}
 
-\xdefinecolor{npu-blue}{RGB}{35, 104, 177}  %RGB#82318E
+% Legacy theme colour. Verify against the current official VI before formal use.
+\xdefinecolor{npu-blue}{RGB}{35, 104, 177}
 \setbeamercolor{frametitle}{bg=npu-blue,fg=white}
 \setbeamercolor{title}{fg=white,bg=npu-blue}
 \setbeamerfont{frametitle}{size=\large}
