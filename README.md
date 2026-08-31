@@ -74,11 +74,13 @@ Fandol 随 TeX Live 分发，不依赖 Windows 的 `SimSun`、`SimHei` 或 `KaiT
 
 ## 示例效果
 
-![示例页面 1](https://user-images.githubusercontent.com/35895359/130741601-5dff265d-4220-4f87-8314-7e89901569ec.png)
+以下图片由 GitHub Actions 在 Linux + TeX Live 2026 环境中实际编译 `main.tex` 后生成。
 
-![示例页面 2](https://user-images.githubusercontent.com/35895359/183274072-52c68d1b-f7e0-421e-b478-e88c8b008383.png)
+![16:9 标题页](docs/images/demo-title.png)
 
-![示例页面 3](https://user-images.githubusercontent.com/35895359/183274042-bad7bfab-247e-422c-a097-e21f07054f27.png)
+![跨平台特性页](docs/images/demo-features.png)
+
+![内容块与公式示例](docs/images/demo-blocks.png)
 
 ## 许可与素材
 
