@@ -102,6 +102,12 @@ Fandol 随 TeX Live 分发，不依赖 Windows 的 `SimSun`、`SimHei` 或 `KaiT
 
 ![内容块与公式示例](docs/images/demo-blocks.png)
 
+![ppt01 任务规划示例](docs/images/demo-plan.png)
+
+![ppt01 贝叶斯网络示例](docs/images/demo-bayes.png)
+
+![ppt02 总结与展望示例](docs/images/demo-summary.png)
+
 ## 许可与素材
 
 请阅读 [`LICENSE`](LICENSE)。模板代码、学校标识/VI、字体以及第三方来源内容的权利范围不同：MIT 许可不自动覆盖校名、校徽、字体或其他第三方素材。
