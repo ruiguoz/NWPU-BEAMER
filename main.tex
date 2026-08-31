@@ -1,6 +1,7 @@
 \documentclass[aspectratio=169,fontset=fandol]{ctexbeamer}
 
 \usepackage{nwpubeamer}
+\usepackage{tikz}
 
 \title[NWPU Beamer]{西北工业大学 Beamer 模板}
 \subtitle{一个跨平台的最小示例}
@@ -38,9 +39,8 @@
   \end{exampleblock}
 \end{frame}
 
-\begin{frame}[plain]
-  \centering
-  \Huge 谢谢！
-\end{frame}
+% 正文可以直接写在 main.tex 中，也可以拆分到文件后由这里统一载入。
+\include{ppt01}
+\include{ppt02}
 
 \end{document}

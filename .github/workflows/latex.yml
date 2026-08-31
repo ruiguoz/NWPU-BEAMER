@@ -22,9 +22,12 @@ jobs:
           latexmk_use_xelatex: true
           texlive_version: 2026
 
+      - name: Name preview PDF
+        run: cp main.pdf NWPU-BEAMER.pdf
+
       - name: Upload compiled PDF
         uses: actions/upload-artifact@v7
         with:
           name: nwpu-beamer-example
-          path: main.pdf
+          path: NWPU-BEAMER.pdf
           if-no-files-found: error

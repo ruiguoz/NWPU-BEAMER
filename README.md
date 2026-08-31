@@ -21,7 +21,7 @@
    cd NWPU-BEAMER
    ```
 
-2. 编辑 [`main.tex`](main.tex) 中的标题、作者、单位、日期和正文。
+2. 编辑 [`main.tex`](main.tex) 中的标题、作者、单位和日期。正文可以直接写在 `main.tex`，也可以继续在 `ppt01.tex`、`ppt02.tex` 中分章维护；它们由 `main.tex` 统一载入。
 
 3. 使用 XeLaTeX 编译：
 
@@ -38,6 +38,8 @@
 
 编译产物为 `main.pdf`。首次使用前请安装包含中文支持的完整 TeX Live；Overleaf 中将 Compiler 设为 XeLaTeX。
 
+不想安装 LaTeX 时，可以直接查看仓库中的 [`NWPU-BEAMER.pdf`](NWPU-BEAMER.pdf)。它由 CI 使用当前 `main.tex` 编译生成。
+
 ## 唯一主文件
 
 [`main.tex`](main.tex) 是本项目**唯一需要编译的主文件**，也是使用者开始写演示文稿的入口。它负责：
@@ -45,13 +47,14 @@
 1. 选择 `ctexbeamer`、16:9 页面和跨平台中文字体；
 2. 加载 `nwpubeamer.sty` 主题；
 3. 设置标题、作者、单位和日期；
-4. 存放演示文稿的章节与页面内容。
+4. 存放演示文稿内容，并统一载入正文分片 `ppt01.tex`、`ppt02.tex`。
 
 其他主要文件的职责如下：
 
 | 文件或目录 | 用途 | 是否直接编译 |
 | --- | --- | --- |
 | `main.tex` | 演示文稿入口和用户内容 | **是** |
+| `ppt01.tex`、`ppt02.tex` | 正文分片，由 `main.tex` 通过 `\include` 载入 | 否 |
 | `nwpubeamer.sty` | 主题实现：背景、颜色、页眉、页脚 | 否 |
 | `source/` | 主题使用的校名、校徽和背景素材 | 否 |
 | `docs/images/` | README 展示图片 | 否 |
@@ -87,7 +90,7 @@ Fandol 随 TeX Live 分发，不依赖 Windows 的 `SimSun`、`SimHei` 或 `KaiT
 
 ## 自动编译
 
-每次 push 或 pull request 都会运行 `.github/workflows/latex.yml`，在 Linux + TeX Live 2026 中用 XeLaTeX 编译 `main.tex`，并上传 `main.pdf` 作为 Actions artifact。
+每次 push 或 pull request 都会运行 `.github/workflows/latex.yml`，在 Linux + TeX Live 2026 中用 XeLaTeX 编译 `main.tex`，并上传 `NWPU-BEAMER.pdf` 作为 Actions artifact。
 
 ## 示例效果
 
